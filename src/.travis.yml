@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t emersonjso/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true emersonjso/docker-react npm run test
